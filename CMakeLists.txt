@@ -11,6 +11,7 @@ add_definitions(-std=c++11)
 find_package(catkin REQUIRED COMPONENTS
     roscpp
     std_msgs
+    geometry_msgs
     message_generation
     serial
     )
@@ -121,6 +122,18 @@ target_link_libraries(${LINKTRACK_NAME}
     ${nutils}
     )
 add_dependencies(${LINKTRACK_NAME} ${PROJECT_NAME}_generate_messages_cpp)
+
+set(TRANS2MAVROS_NAME "trans2mavros")
+add_executable(${TRANS2MAVROS_NAME}
+    src/trans2mavros/main.cpp
+)
+target_link_libraries(${TRANS2MAVROS_NAME}
+#    ${catkin_LIBRARIES}
+    ${nutils}
+    )
+add_dependencies(${TRANS2MAVROS_NAME} ${PROJECT_NAME}_generate_messages_cpp)
+
+
 
 set(LINKTRACK_RVIZ_NAME "linktrack_rviz_converter")
 add_executable(${LINKTRACK_RVIZ_NAME}
