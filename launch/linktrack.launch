@@ -1,5 +1,7 @@
 <launch>
-    <group ns="uav1">
+    <arg name="uav" default="uav1"/>
+
+    <group ns="$(arg uav)">
         <node pkg="nlink_parser" type="linktrack" name="linktrack0" output="screen">
             <param name="port_name" value="/dev/ttyUSB0" />
             <param name="baud_rate" value="921600" />
