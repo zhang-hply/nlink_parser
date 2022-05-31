@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
     roscpp
     std_msgs
     message_generation
+    serial
     )
 
 ## Generate messages in the 'msg' folder
@@ -107,7 +108,6 @@ add_library(${nutils}
 )
 target_link_libraries(${nutils}
   ${catkin_LIBRARIES}
-  serial
 )
 
 set(LINKTRACK_NAME "linktrack")
