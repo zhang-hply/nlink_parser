@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
     roscpp
     std_msgs
     geometry_msgs
+    nav_msgs
     message_generation
     serial
     )
@@ -123,15 +124,25 @@ target_link_libraries(${LINKTRACK_NAME}
     )
 add_dependencies(${LINKTRACK_NAME} ${PROJECT_NAME}_generate_messages_cpp)
 
-set(TRANS2MAVROS_NAME "trans2mavros")
-add_executable(${TRANS2MAVROS_NAME}
-    src/trans2mavros/main.cpp
+set(NODEFRAME2_TO_POSE2_NAME "nodeframe2_to_odom2")
+add_executable(${NODEFRAME2_TO_POSE2_NAME}
+    src/trans2mavros/nodeframe2_to_odom2.cpp
 )
-target_link_libraries(${TRANS2MAVROS_NAME}
+target_link_libraries(${NODEFRAME2_TO_POSE2_NAME}
 #    ${catkin_LIBRARIES}
     ${nutils}
     )
-add_dependencies(${TRANS2MAVROS_NAME} ${PROJECT_NAME}_generate_messages_cpp)
+add_dependencies(${NODEFRAME2_TO_POSE2_NAME} ${PROJECT_NAME}_generate_messages_cpp)
+
+set(NODEFRAME1_TO_POSE1_NAME "nodeframe1_to_odom1")
+add_executable(${NODEFRAME1_TO_POSE1_NAME}
+    src/trans2mavros/nodeframe1_to_odom1.cpp
+)
+target_link_libraries(${NODEFRAME1_TO_POSE1_NAME}
+#    ${catkin_LIBRARIES}
+    ${nutils}
+    )
+add_dependencies(${NODEFRAME1_TO_POSE1_NAME} ${PROJECT_NAME}_generate_messages_cpp)
 
 
 

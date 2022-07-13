@@ -1,13 +1,14 @@
 <launch>
-    <arg name="uav" default="uav1"/>
+    <arg name="uav" default="tello"/>
 
     <group ns="$(arg uav)">
         <node pkg="nlink_parser" type="linktrack" name="linktrack0" output="screen">
             <param name="port_name" value="/dev/ttyUSB0" />
             <param name="baud_rate" value="921600" />
         </node>
-
-        <node pkg="nlink_parser" type="trans2mavros" name="trans2mavros" output="screen"/>
+        
+        <node pkg="nlink_parser" type="nodeframe1_to_odom1" name="nodeframe1_to_odom1" output="screen"/>
+        <node pkg="nlink_parser" type="nodeframe2_to_odom2" name="nodeframe2_to_odom2" output="screen"/>
     </group>
     
 </launch>
