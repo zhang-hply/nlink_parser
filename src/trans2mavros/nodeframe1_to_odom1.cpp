@@ -8,7 +8,7 @@ void nodeFrame1Callback(const nlink_parser::LinktrackNodeframe1 &msg){
     odometry_msg.header.stamp = ros::Time::now();
     odometry_msg.pose.pose.position.x = msg.nodes[0].pos_3d[0];
     odometry_msg.pose.pose.position.y = msg.nodes[0].pos_3d[1];
-    odometry_msg.pose.pose.position.z = msg.nodes[0].pos_3d[2];
+    odometry_msg.pose.pose.position.z = 0.0;
     odometry_msg.pose.pose.orientation.w = 1.0;
     odometry_msg.pose.pose.orientation.x = 0.0;
     odometry_msg.pose.pose.orientation.y = 0.0;
