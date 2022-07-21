@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
     nav_msgs
     message_generation
     serial
+    tf
     )
 
 ## Generate messages in the 'msg' folder
